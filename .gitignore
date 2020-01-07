@@ -1,0 +1,22 @@
+# Editors
+.vs
+.vscode/*
+.atom
+.idea
+
+# Project
+!.vscode/settings.json
+
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Coverage
+*.out
+*.html
