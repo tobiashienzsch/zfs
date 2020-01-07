@@ -4,6 +4,8 @@ import (
 	"errors"
 	"fmt"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestError(t *testing.T) {
@@ -29,9 +31,11 @@ func TestError(t *testing.T) {
 
 			// Verify output format is consistent, so that any changes to the
 			// Error method must be reflected by the test
-			if str := zErr.Error(); str != fmt.Sprintf("%s: %q => %s", test.err, test.debug, test.stderr) {
-				t.Fatalf("unexpected Error string: %v", str)
-			}
+			expected := fmt.Sprintf("%s: %q => %s", test.err, test.debug, test.stderr)
+			actual := zErr.Error()
+
+			assert.Equal(t, expected, actual, "they should be equal")
+
 		})
 	}
 }
