@@ -15,7 +15,7 @@ type Command struct {
 }
 
 // Run executes the os command & returns the output
-func (c *Command) Run(arg ...string) ([][]string, error) {
+func (c *Command) Run(arg ...string) ([]string, error) {
 
 	cmd := exec.Command(c.Command, arg...)
 
@@ -51,13 +51,5 @@ func (c *Command) Run(arg ...string) ([][]string, error) {
 
 	lines := strings.Split(stdout.String(), "\n")
 
-	//last line is always blank
-	lines = lines[0 : len(lines)-1]
-	output := make([][]string, len(lines))
-
-	for i, l := range lines {
-		output[i] = strings.Fields(l)
-	}
-
-	return output, nil
+	return lines, nil
 }

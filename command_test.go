@@ -7,10 +7,16 @@ import (
 	"github.com/tobiashienzsch/zfs"
 )
 
-func TestCommand(t *testing.T) {
+func TestCommandRun(t *testing.T) {
 	c := zfs.Command{Command: "pwd"}
 	actual, err := c.Run()
 	assert.NoError(t, err, "while running command")
-	assert.Contains(t, actual[0][0], "/zfs", "")
+	assert.Contains(t, actual[0], "/zfs", "")
+}
 
+func TestCommandRunCommandDoesntExist(t *testing.T) {
+	c := zfs.Command{Command: "qwertgyhuj"}
+	actual, err := c.Run()
+	assert.Error(t, err, "while running command")
+	assert.Nil(t, actual, "")
 }
