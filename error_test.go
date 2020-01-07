@@ -1,4 +1,4 @@
-package zfs
+package zfs_test
 
 import (
 	"errors"
@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/tobiashienzsch/zfs"
 )
 
 func TestError(t *testing.T) {
@@ -23,7 +24,7 @@ func TestError(t *testing.T) {
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
 			// Generate error from tests
-			zErr := Error{
+			zErr := zfs.Error{
 				Err:    test.err,
 				Debug:  test.debug,
 				Stderr: test.stderr,
