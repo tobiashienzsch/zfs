@@ -14,7 +14,16 @@ script-anchors:
 matrix:
   include:
     - os: linux
+      sudo: required
       dist: bionic
+      addons:
+        apt:
+          sources:
+            - sourceline: "ppa:zfs-native/stable"
+          packages:
+            - software-properties-common
+            - curl
+            - ubuntu-zfs
       go:
         - 1.13.x
       env:
