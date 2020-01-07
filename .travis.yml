@@ -18,12 +18,10 @@ matrix:
       dist: bionic
       addons:
         apt:
-          sources:
-            - sourceline: "ppa:zfs-native/stable"
           packages:
             - software-properties-common
             - curl
-            - ubuntu-zfs
+            - zfsutils-linux
       go:
         - 1.13.x
       env:
