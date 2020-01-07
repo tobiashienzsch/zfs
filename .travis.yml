@@ -6,6 +6,7 @@ language: go
 
 script-anchors:
   - &script-linux-coverage
+    - zpool status
     - cd $TRAVIS_BUILD_DIR
     - go get -u ./...
     - go test -race -coverprofile coverage.out ./...
